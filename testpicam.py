@@ -1,10 +1,23 @@
 from picamera2 import Picamera2
 import requests
 import time
+import espeakng
 
 start_time = time.time()
 
 capture_start_time = time.time()
+
+"""
+mySpeaker = espeakng.Speaker()
+
+# Set custom properties
+mySpeaker.amplitude = 30  # Adjust amplitude (default is 100)
+mySpeaker.wordgap = 7         # Set word gap (default is 10)
+mySpeaker.wpm = 150     # Set speech rate (default is 175)
+mySpeaker.voice = 'us-mbrola-2' # Select the US male voice (default is 'en')
+#mySpeaker.pitch = 50
+"""
+
 
 picam2 = Picamera2()
 
@@ -51,6 +64,9 @@ print(f"Time taken for sending the image file: {send_time:.2f} seconds")
 
 # Print the result
 print(response.text)
+
+# Say the provided text
+#mySpeaker.say(response.text)
 
 # Total time taken for the entire process
 end_time = time.time()
